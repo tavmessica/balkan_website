@@ -1,0 +1,160 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Tav_web.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>ארצות הבלקן</title>
+    <script>
+        
+        setInterval("myTimer()", 1000);//מפעילה כל פרק זמן את הפונקציה , המספר 1000 מייצג פרק זמן של שנייה
+        function myTimer() {
+            var d = new Date();//נדגום זמן רגעי
+            var t = d.toLocaleTimeString();//ניקח את השעה העכשוית
+            document.getElementById("myTime").innerHTML = t;//שים בתוך המחרוזת הריקה את המשתנה טי
+        }
+    </script>
+    <style>
+        body{direction:rtl;}
+        
+                * {
+                    box-sizing: border-box;
+                    }
+
+                body {
+                         margin: 0;
+                         background: gray;
+                        font-family: Arial;
+                        display: flex;
+                        flex-direction:column;
+                        min-height: 100vh;
+                     }
+
+                nav {
+                        background: #594848;
+                        width: 100%;
+                        overflow: auto;
+                     }
+
+                    nav ul {
+                            margin: 0;
+                            padding: 0;
+                            list-style: none;
+                            }
+
+                    nav li {
+                                float: right;
+                            }
+
+                    nav a {
+                                    width: 120px;
+                                    display: block;
+                                    text-decoration: none;
+                                    text-align: center;
+                                    background: #594848;
+                                    font-size: 17px;
+                                    color: white;
+                                    padding: 20px 10px;
+                                    font-family: Arial;
+                            }
+
+                    nav a:hover {
+                                    background: skyblue;
+                                    color: black;
+                                }
+                    .rf{
+                        background: #594848;
+                        color:white;
+                    }
+                    .rf h3{
+                        font-size:30px;
+                        margin:0;
+                        padding:0;
+                        margin-right:10px;
+                    }
+                    .rf a{
+                            color:white;
+                            text-decoration:none;
+                    }
+                    footer {
+                        background:  #594848;
+                        width: 100%;
+                        overflow: auto;
+                        margin-top: auto;
+                     }
+
+                    footer ul {
+                            margin: 0;
+                            padding: 0;
+                            list-style: none;
+                            }
+
+                    footer li {
+                                float: right;
+                                margin:10px;
+                                margin-left:30px;
+                                color: white;
+                            }
+                    
+                    footer a {
+                                    width: 120px;
+                                    display: block;
+                                    text-decoration: none;
+                                    text-align: center;
+                                    background:  #594848;
+                                    font-size: 17px;
+                                    color: white;
+                                    
+                                    font-family: Arial;
+                            }
+                    footer a:hover {
+                                    background: skyblue;
+                                    color: black;
+                                }
+
+                    
+
+    </style>
+    
+   
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+   
+    <div class="rf">
+       <%= loginMsg %>
+    </div>
+     <nav>
+        <ul>
+            <li><a href="mainpage.aspx">דף הבית</a></li>
+            <li><a href="country_table.aspx">טבלת ארצות</a></li>
+            <%= menu %>
+            <li><a href="gallery.aspx">גלרייה</a></li>
+        </ul>
+         
+    </nav>
+    
+    <!--אין לכתוב בין תגיות הasp
+        שומרי המקום עבור ההיד והבודי של דפי הידע.
+        -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+    
+     
+    
+         <footer >
+        <ul>
+            
+            <li><a href="mailto:tavmessica567@gmail.com">כתובת אמייל</a></li>
+            <li>מונה מבקרים באתר &nbsp;=&nbsp;<%= Application["counter"] %></li>
+             <li id="myTime"></li>
+            
+        </ul>
+         
+    </footer>
+        
+     
+</body>
+</html>
